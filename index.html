@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Asd</title>
+	<link rel="stylesheet" type="text/css" href="asd.xml">
+</head>
+<body>
+<div>
+	To: <span id="to"></span><br>
+	From: <span id="from"></span><br>
+	Message: <span id="message"></span><br>
+</div>
+
+
+</body>
+<script type="text/javascript">
+	xmlhttp = new XMLHttpRequest ();
+	xmlhttp.open("GET", "asd.xml", false); //this will open our XML file
+	xmlhttp.send(); //this will send request to file
+	xmlDoc=xmlhttp.responseXML;
+
+	document.getElementById("to").innerHTML = xmlDoc.getElementsByTagName("to")[0].childNodes[0].nodeValue;
+	// this will return the tag value
+	document.getElementById("from").innerHTML = xmlDoc.getElementsByTagName("from")[0].childNodes[0].nodeValue;
+	document.getElementById("message").innerHTML = xmlDoc.getElementsByTagName("body")[0].childNodes[0].nodeValue;
+	xmlhttp.close("GET", "asd.xml", false);
+</script>
+</html>
